@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author visitante
+ * @author daguilae
  */
 public class OperacionesBasicas {
 
