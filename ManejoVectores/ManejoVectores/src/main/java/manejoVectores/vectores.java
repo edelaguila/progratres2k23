@@ -35,6 +35,7 @@ public class vectores {
             miVector[i] = entradaDatos.nextInt();
         } 
         // Calcular los totales para el promedio e identificación del mayor y el menor
+        System.out.println("Despliegue de elementos del vector");
         for (int i = 0; i < miVector.length; i++) {
             sumaDatos += miVector[i];
             if (numeroMayor < miVector[i]) {
