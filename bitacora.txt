@@ -1,0 +1,17 @@
+commit 4d216f6ce0a12be8af53d06e6c662ba22c023bf5
+Author: Esduardo Del Aguila <daguilae@yahoo.com>
+Date:   Fri Jan 20 11:09:27 2023 -0600
+
+    Mantenimiento nombre del autor
+
+commit cfb7fc9f2e4f1f654160e6bbb5933cef1b33e608
+Author: Esduardo Del Aguila <daguilae@yahoo.com>
+Date:   Fri Jan 20 10:00:30 2023 -0600
+
+    Primera version laboratorio en clase 1 2023
+
+commit 3c65ffe69b141d762ebda0beeac1af02e5f7d440
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed Jan 18 07:50:16 2023 -0600
+
+    Initial commit
