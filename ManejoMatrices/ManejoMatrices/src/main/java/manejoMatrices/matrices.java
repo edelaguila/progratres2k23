@@ -5,6 +5,8 @@
  */
 package manejoMatrices;
 
+import java.util.Scanner;
+
 /**
  *
  * @author visitante
@@ -24,6 +26,27 @@ public class matrices {
             }
         }
         System.out.println("Matriz Inicializada");
+        Scanner entrada = new Scanner(System.in);
+
+        float sumaFila = 0;
+        System.out.println("Uso de matrices");
+        for (int i = 0; i < miMatriz.length; i++) {
+            for (int j = 0; j < miMatriz.length; j++) {
+                System.out.println("Ingrese el numero en la fila " + (i)
+                        + " columna " + j + " :");
+                miMatriz[i][j] = entrada.nextInt();
+            }
+        }
+        System.out.println("Analisis de los datos ingresados en la matriz");
+        for (int i = 0; i < miMatriz.length; i++) {
+            sumaFila = 0;
+            for (int j = 0; j < miMatriz[i].length; j++) {
+                sumaFila += miMatriz[i][j];
+                System.out.println(String.format(" %d ", miMatriz[i][j]));
+            }
+            System.out.println(String.format(" Suma fila: %f, promedio fila: %f ", sumaFila, sumaFila / miMatriz.length));
+            System.out.println();
+        }      
     }
     
 }
