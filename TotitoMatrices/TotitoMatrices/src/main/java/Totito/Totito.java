@@ -26,7 +26,7 @@ public class Totito {
      * Metodo donde empezaremos a jugar
      */
     public static void jugar() {
- 
+
         //Reprentaciones de los jugadores y del simbolo vacio
         char J1 = 'X';
         char J2 = 'O';
