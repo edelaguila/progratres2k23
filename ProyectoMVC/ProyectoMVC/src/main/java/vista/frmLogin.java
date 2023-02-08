@@ -132,6 +132,7 @@ public class frmLogin extends javax.swing.JFrame {
         } else {
             try {
                 clsUsuario usuario = new clsUsuario();
+          
                 usuario.setNombreUsuario(txtUsuario.getText().trim());
                 // Recuperación de información a través de otro objeto
                 usuario = usuario.getInformacionUsuario(usuario);

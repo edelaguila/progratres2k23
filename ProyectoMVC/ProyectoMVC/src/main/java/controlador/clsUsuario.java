@@ -14,18 +14,18 @@ public class clsUsuario {
     private String NombreUsuario;
     private String ContrasenaUsuario;
 
- public clsUsuario(String NombreUsuario, String ContrasenaUsuario) {
+    public clsUsuario() {
+    }
+    
+    public clsUsuario(int IdUsuario) {
+        this.IdUsuario = IdUsuario;
+    }    
+    
+    public clsUsuario(String NombreUsuario, String ContrasenaUsuario) {
         this.NombreUsuario = NombreUsuario;
         this.ContrasenaUsuario = ContrasenaUsuario;
     }
-
-    public clsUsuario(int IdUsuario) {
-        this.IdUsuario = IdUsuario;
-    }
-
-    public clsUsuario() {
-    }
-
+    
     public clsUsuario(int IdUsuario, String NombreUsuario, String ContrasenaUsuario) {
         this.IdUsuario = IdUsuario;
         this.NombreUsuario = NombreUsuario;
