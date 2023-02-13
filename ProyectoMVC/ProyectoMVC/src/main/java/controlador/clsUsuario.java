@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package controlador;
+import java.util.List;
 import modelo.daoUsuario;
 /**
  *
@@ -65,4 +66,30 @@ public class clsUsuario {
         usuario = daousuario.query(usuario);
         return usuario;
     }
+    public List<clsUsuario> getListadoUsuarios()
+    {
+        daoUsuario daousuario = new daoUsuario();
+        List<clsUsuario> listadoUsuarios = daousuario.select();
+        return listadoUsuarios;
+    }
+    public int setBorrarUsuario(clsUsuario usuario)
+    {
+        daoUsuario daousuario = new daoUsuario();
+        return daousuario.delete(usuario);
+    }          
+    public int setIngresarUsuario(clsUsuario usuario)
+    {
+        daoUsuario daousuario = new daoUsuario();
+        return daousuario.insert(usuario);
+    }              
+    public clsUsuario getBuscarUsuario(clsUsuario usuario)
+    {
+        daoUsuario daousuario = new daoUsuario();
+        return daousuario.query(usuario);
+    }                  
+    public int setModificarUsuario(clsUsuario usuario)
+    {
+        daoUsuario daousuario = new daoUsuario();
+        return daousuario.update(usuario);
+    }              
 }

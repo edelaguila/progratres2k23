@@ -58,7 +58,7 @@ public class MdiGeneral extends javax.swing.JFrame {
             .addGap(0, 279, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Archivo");
+        jMenu1.setText("Catalogos");
 
         jMenu3.setText("Mantenimientos");
         jMenu3.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +67,7 @@ public class MdiGeneral extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem3.setText("Mantenimiento Vendedores");
+        jMenuItem3.setText("Mantenimiento Usuarios");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -102,11 +102,11 @@ public class MdiGeneral extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-        /* MantenimientoVendedores ventana = new MantenimientoVendedores();
+        frmMantenimientoUsuario ventana = new frmMantenimientoUsuario();
         jDesktopPane1.add(ventana);
         Dimension desktopSize = jDesktopPane1.getSize();
         Dimension FrameSize = ventana.getSize();
-        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2); */
+        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
