@@ -26,8 +26,8 @@ public class daoUsuario {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        clsUsuario usuario = new clsUsuario();
-        List<clsUsuario> usuarios = new ArrayList<clsUsuario>();
+        
+        List<clsUsuario> usuarios = new ArrayList<>();
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_SELECT);
@@ -36,14 +36,12 @@ public class daoUsuario {
                 int id = rs.getInt("usuid");
                 String nombre = rs.getString("usunombre");
                 String contrasena = rs.getString("usucontrasena");
-                
+                clsUsuario usuario = new clsUsuario();
                 usuario.setIdUsuario(id);
                 usuario.setNombreUsuario(nombre);
                 usuario.setContrasenaUsuario(contrasena);
-
                 usuarios.add(usuario);
             }
-
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
         } finally {
@@ -51,7 +49,6 @@ public class daoUsuario {
             Conexion.close(stmt);
             Conexion.close(conn);
         }
-
         return usuarios;
     }
 
@@ -131,8 +128,9 @@ public class daoUsuario {
         ResultSet rs = null;
         try {
             conn = Conexion.getConnection();
-            System.out.println("Ejecutando query:" + SQL_QUERY);
+            System.out.println("Ejecutando query:" + SQL_QUERY + " objeto recibido: " + usuario);
             stmt = conn.prepareStatement(SQL_QUERY);
+            //stmt.setInt(1, usuario.getIdUsuario());            
             stmt.setString(1, usuario.getNombreUsuario());
             rs = stmt.executeQuery();
             while (rs.next()) {
@@ -140,10 +138,11 @@ public class daoUsuario {
                 String nombre = rs.getString("usunombre");
                 String contrasena = rs.getString("usucontrasena");
 
-                usuario = new clsUsuario();
+                //usuario = new clsUsuario();
                 usuario.setIdUsuario(id);
                 usuario.setNombreUsuario(nombre);
                 usuario.setContrasenaUsuario(contrasena);
+                System.out.println(" registro consultado: " + usuario);                
             }
             //System.out.println("Registros buscado:" + persona);
         } catch (SQLException ex) {

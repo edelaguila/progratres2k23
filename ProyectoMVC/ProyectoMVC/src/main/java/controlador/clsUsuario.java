@@ -60,6 +60,7 @@ public class clsUsuario {
     public String toString() {
         return "clsUsuario{" + "IdUsuario=" + IdUsuario + ", NombreUsuario=" + NombreUsuario + ", ContrasenaUsuario=" + ContrasenaUsuario + '}';
     }
+    //Metodos de acceso a la capa controlador
     public clsUsuario getInformacionUsuario(clsUsuario usuario)
     {
         daoUsuario daousuario = new daoUsuario();
@@ -85,6 +86,7 @@ public class clsUsuario {
     public clsUsuario getBuscarUsuario(clsUsuario usuario)
     {
         daoUsuario daousuario = new daoUsuario();
+        System.out.println("Usuario enviado: " + usuario);        
         return daousuario.query(usuario);
     }                  
     public int setModificarUsuario(clsUsuario usuario)
