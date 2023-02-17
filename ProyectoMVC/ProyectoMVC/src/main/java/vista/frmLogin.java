@@ -135,7 +135,7 @@ public class frmLogin extends javax.swing.JFrame {
           
                 usuario.setNombreUsuario(txtUsuario.getText().trim());
                 // Recuperación de información a través de otro objeto
-                usuario = usuario.getInformacionUsuario(usuario);
+                usuario = usuario.getBuscarInformacionUsuarioPorNombre(usuario);
                 if (txtContraseña.getText().equals(usuario.getContrasenaUsuario()) && 
                     txtUsuario.getText().equals(usuario.getNombreUsuario())) {
                     JOptionPane.showMessageDialog(null, "Bienvenido al SISTEMA\n", 

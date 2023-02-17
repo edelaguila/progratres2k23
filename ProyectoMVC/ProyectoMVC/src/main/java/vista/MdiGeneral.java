@@ -6,6 +6,7 @@
 package vista;
 
 import java.awt.Dimension;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -35,8 +36,11 @@ public class MdiGeneral extends javax.swing.JFrame {
 
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
+        salirDelSistema = new javax.swing.JMenu();
+        mnuSalirSistema = new javax.swing.JCheckBoxMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -44,6 +48,8 @@ public class MdiGeneral extends javax.swing.JFrame {
         jMenuItem1.setText("jMenuItem1");
 
         jMenuItem2.setText("jMenuItem2");
+
+        jMenuItem4.setText("jMenuItem4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,6 +63,24 @@ public class MdiGeneral extends javax.swing.JFrame {
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 279, Short.MAX_VALUE)
         );
+
+        salirDelSistema.setText("Archivo");
+        salirDelSistema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirDelSistemaActionPerformed(evt);
+            }
+        });
+
+        mnuSalirSistema.setSelected(true);
+        mnuSalirSistema.setText("Salir del Sistema");
+        mnuSalirSistema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuSalirSistemaActionPerformed(evt);
+            }
+        });
+        salirDelSistema.add(mnuSalirSistema);
+
+        jMenuBar1.add(salirDelSistema);
 
         jMenu1.setText("Catalogos");
 
@@ -109,6 +133,23 @@ public class MdiGeneral extends javax.swing.JFrame {
         ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    private void salirDelSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirDelSistemaActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_salirDelSistemaActionPerformed
+
+    private void mnuSalirSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSalirSistemaActionPerformed
+        // TODO add your handling code here:
+                /*===== OPERACIÓN CERRAR SESIÓN ====
+          Variable entera respuesta_cs*/
+
+        int respuesta_cs = JOptionPane.showConfirmDialog(this, "¿Desea Cerrar Sesión?", "Cerrar Sesión",            JOptionPane.YES_NO_OPTION);
+
+        if (respuesta_cs == 0) {
+            this.dispose();
+        }        
+    }//GEN-LAST:event_mnuSalirSistemaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -153,5 +194,8 @@ public class MdiGeneral extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JCheckBoxMenuItem mnuSalirSistema;
+    private javax.swing.JMenu salirDelSistema;
     // End of variables declaration//GEN-END:variables
 }

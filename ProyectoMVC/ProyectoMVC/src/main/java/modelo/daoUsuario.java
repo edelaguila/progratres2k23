@@ -20,9 +20,10 @@ public class daoUsuario {
     private static final String SQL_INSERT = "INSERT INTO tbl_usuario(usunombre, usucontrasena) VALUES(?, ?)";
     private static final String SQL_UPDATE = "UPDATE tbl_usuario SET usunombre=?, usucontrasena=? WHERE usuid = ?";
     private static final String SQL_DELETE = "DELETE FROM tbl_usuario WHERE usuid=?";
-    private static final String SQL_QUERY = "SELECT usuid, usunombre, usucontrasena FROM tbl_usuario WHERE usunombre = ?";
+    private static final String SQL_SELECT_NOMBRE = "SELECT usuid, usunombre, usucontrasena FROM tbl_usuario WHERE usunombre = ?";
+    private static final String SQL_SELECT_ID = "SELECT usuid, usunombre, usucontrasena FROM tbl_usuario WHERE usuid = ?";    
 
-    public List<clsUsuario> select() {
+    public List<clsUsuario> consultaUsuarios() {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -52,7 +53,7 @@ public class daoUsuario {
         return usuarios;
     }
 
-    public int insert(clsUsuario usuario) {
+    public int ingresaUsuarios(clsUsuario usuario) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -75,7 +76,7 @@ public class daoUsuario {
         return rows;
     }
 
-    public int update(clsUsuario usuario) {
+    public int actualizaUsuarios(clsUsuario usuario) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -100,7 +101,7 @@ public class daoUsuario {
         return rows;
     }
 
-    public int delete(clsUsuario usuario) {
+    public int borrarUsuarios(clsUsuario usuario) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -122,14 +123,14 @@ public class daoUsuario {
         return rows;
     }
 
-    public clsUsuario query(clsUsuario usuario) {
+    public clsUsuario consultaUsuariosPorNombre(clsUsuario usuario) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
             conn = Conexion.getConnection();
-            System.out.println("Ejecutando query:" + SQL_QUERY + " objeto recibido: " + usuario);
-            stmt = conn.prepareStatement(SQL_QUERY);
+            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + usuario);
+            stmt = conn.prepareStatement(SQL_SELECT_NOMBRE);
             //stmt.setInt(1, usuario.getIdUsuario());            
             stmt.setString(1, usuario.getNombreUsuario());
             rs = stmt.executeQuery();
@@ -156,4 +157,38 @@ public class daoUsuario {
         //return personas;  // Si se utiliza un ArrayList
         return usuario;
     }
+    public clsUsuario consultaUsuariosPorId(clsUsuario usuario) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            conn = Conexion.getConnection();
+            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + usuario);
+            stmt = conn.prepareStatement(SQL_SELECT_ID);
+            stmt.setInt(1, usuario.getIdUsuario());            
+            //stmt.setString(1, usuario.getNombreUsuario());
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("usuid");
+                String nombre = rs.getString("usunombre");
+                String contrasena = rs.getString("usucontrasena");
+
+                //usuario = new clsUsuario();
+                usuario.setIdUsuario(id);
+                usuario.setNombreUsuario(nombre);
+                usuario.setContrasenaUsuario(contrasena);
+                System.out.println(" registro consultado: " + usuario);                
+            }
+            //System.out.println("Registros buscado:" + persona);
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.out);
+        } finally {
+            Conexion.close(rs);
+            Conexion.close(stmt);
+            Conexion.close(conn);
+        }
+
+        //return personas;  // Si se utiliza un ArrayList
+        return usuario;
+    }    
 }
